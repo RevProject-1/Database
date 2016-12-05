@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientManagement.DataAccess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientManagement.Tests", "ClientManagement.Tests\ClientManagement.Tests.csproj", "{666E4758-339E-4A6A-AA25-9D449E7C35EC}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "cmanageDB", "cmanageDB\cmanageDB.sqlproj", "{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{666E4758-339E-4A6A-AA25-9D449E7C35EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666E4758-339E-4A6A-AA25-9D449E7C35EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666E4758-339E-4A6A-AA25-9D449E7C35EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5EFC331-00D6-48C2-A3BD-EA7388A8AEE0}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
