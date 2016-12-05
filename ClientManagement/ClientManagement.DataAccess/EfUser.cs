@@ -13,10 +13,11 @@ namespace ClientManagement.DataAccess
       return db.AspNetUsers.ToList();
     }
 
-    public void Login(AspNetUser user)
+    public bool Login(AspNetUser user)
     {
       var u = db.AspNetUsers.Where(x => x.Id == user.Id && x.PasswordHash == user.PasswordHash);
-      
+
+      return true;
     }
     public bool AddUser(AspNetUser user)
     {

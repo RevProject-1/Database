@@ -21,10 +21,15 @@ namespace ClientManagement.DbService
       throw new NotImplementedException();
     }
 
-    public void Login(UserDAO user)
-    {      
-      
+    public bool Login(UserDAO user)
+    {
+      return ef.Login(UserMapper.MapToUser(user));
 
+    }
+
+    public bool ChangePassword(UserDAO user)
+    {     
+      return ef.ChangePassword(UserMapper.MapToUser(user));
     }
 
     public bool Register(UserDAO user)
@@ -50,6 +55,28 @@ namespace ClientManagement.DbService
 
       return ef.AddUser(u);
 
+    }
+
+    public List<ClientDAO> GetClients()
+    {
+      var s = new List<ClientDAO>();
+
+      foreach (var client in ef.GetClients())
+      {
+        s.Add(ClientMapper.MapToClientDAO(client));
+      }
+      return s;
+    }
+
+    public List<AddressDAO> GetAddress()
+    {
+      var s = new List<AddressDAO>();
+
+      foreach (var address in ef.GetAddress())
+      {
+        s.Add(AddressMapper.MapToAddressDAO(address));
+      }
+      return s;
     }
   }
 }

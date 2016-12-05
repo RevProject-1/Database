@@ -21,6 +21,15 @@ namespace ClientManagement.DbService
     List<UserDAO> GetUserNames();
 
     [OperationContract]
-    void Login(UserDAO user);
+    bool ChangePassword(UserDAO user);
+
+    [OperationContract]
+    bool Login(UserDAO user);
+
+    [OperationContract]
+    List<ClientDAO> GetClients();
+
+    [OperationContract]
+    List<AddressDAO> GetAddress();
   }
 }

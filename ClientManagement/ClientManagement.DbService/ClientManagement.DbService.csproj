@@ -97,6 +97,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressMapper.cs" />
+    <Compile Include="ClientMapper.cs" />
+    <Compile Include="Models\AddressDAO.cs" />
+    <Compile Include="Models\ClientDAO.cs" />
     <Compile Include="Models\UserDAO.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

@@ -107,6 +107,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CManagementModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EfAddress.cs" />
+    <Compile Include="EfClients.cs" />
     <Compile Include="EfData.cs" />
     <Compile Include="EfUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
