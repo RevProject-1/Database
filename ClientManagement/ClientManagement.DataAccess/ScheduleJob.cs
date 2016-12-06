@@ -21,10 +21,12 @@ namespace ClientManagement.DataAccess
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<int> EstimatedDuration { get; set; }
         public string Notes { get; set; }
+        public Nullable<int> ExpenseID { get; set; }
         public bool Complete { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Client Client { get; set; }
+        public virtual Expense Expense { get; set; }
         public virtual ServiceType ServiceType { get; set; }
     }
 }

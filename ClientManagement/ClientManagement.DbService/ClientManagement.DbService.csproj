@@ -99,9 +99,11 @@
   <ItemGroup>
     <Compile Include="AddressMapper.cs" />
     <Compile Include="ClientMapper.cs" />
+    <Compile Include="ExpenseMapper.cs" />
     <Compile Include="JobMapper.cs" />
     <Compile Include="Models\AddressDAO.cs" />
     <Compile Include="Models\ClientDAO.cs" />
+    <Compile Include="Models\ExpenseDAO.cs" />
     <Compile Include="Models\JobDAO.cs" />
     <Compile Include="Models\ServiceTypeDAO.cs" />
     <Compile Include="Models\UserDAO.cs" />

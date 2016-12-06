@@ -137,5 +137,31 @@ namespace ClientManagement.DbService
     {
       return ef.DeleteJob(JobMapper.MapToJob(job));
     }
+
+    public List<ExpenseDAO> GetExpenses()
+    {
+      var s = new List<ExpenseDAO>();
+
+      foreach (var ex in ef.GetExpenses())
+      {
+        s.Add(ExpenseMapper.MapToExpenseDAO(ex));
+      }
+      return s;
+    }
+
+    public bool AddExpense(ExpenseDAO ex)
+    {
+      return ef.AddExpense(ExpenseMapper.MapToExpense(ex));
+    }
+
+    public bool UpdateExpense(ExpenseDAO ex)
+    {
+      return ef.UpdateExpense(ExpenseMapper.MapToExpense(ex));
+    }
+
+    public bool DeleteExpense(ExpenseDAO ex)
+    {
+      return ef.DeleteExpense(ExpenseMapper.MapToExpense(ex));
+    }
   }
 }

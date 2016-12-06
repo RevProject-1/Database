@@ -25,6 +25,7 @@ namespace ClientManagement.DataAccess
       s.StartDate = job.StartDate;
       s.EstimatedDuration = job.EstimatedDuration;
       s.Notes = job.Notes;
+      s.ExpenseID = job.ExpenseID;
       s.Complete = job.Complete;
       db.ScheduleJobs.Add(s);
       return db.SaveChanges() > 0;

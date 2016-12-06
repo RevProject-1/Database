@@ -23,6 +23,7 @@ namespace ClientManagement.DbService
       c.StartDate = job.StartDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
+      c.ExpenseID = job.ExpenseID;      
       c.Complete = job.Complete;
 
       return c;
