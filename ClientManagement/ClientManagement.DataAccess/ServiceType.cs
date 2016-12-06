@@ -12,22 +12,18 @@ namespace ClientManagement.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Client
+    public partial class ServiceType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Client()
+        public ServiceType()
         {
             this.ScheduleJobs = new HashSet<ScheduleJob>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> AddressID { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Email { get; set; }
         public string UserId { get; set; }
     
-        public virtual Address Address { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ScheduleJob> ScheduleJobs { get; set; }
     }

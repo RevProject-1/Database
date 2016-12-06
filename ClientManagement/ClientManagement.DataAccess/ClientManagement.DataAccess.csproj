@@ -110,8 +110,16 @@
     <Compile Include="EfAddress.cs" />
     <Compile Include="EfClients.cs" />
     <Compile Include="EfData.cs" />
+    <Compile Include="EfJobs.cs" />
+    <Compile Include="EfServiceTypes.cs" />
     <Compile Include="EfUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleJob.cs">
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceType.cs">
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

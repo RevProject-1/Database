@@ -63,7 +63,7 @@ namespace ClientManagement.DataAccess
     public bool UpdateUser(AspNetUser user)
     {
       var result = db.AspNetUsers.SingleOrDefault(x => x.Id == user.Id);
-
+      
       if (result != null)
       {
         if (user.Id != null)

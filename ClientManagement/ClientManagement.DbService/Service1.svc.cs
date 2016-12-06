@@ -80,5 +80,62 @@ namespace ClientManagement.DbService
     {
       return ef.DeleteClient(ClientMapper.MapToClient(client));
     }
+
+    public bool UpdateUser(UserDAO user)
+    {
+      return ef.UpdateUser(UserMapper.MapToUser(user));
+    }
+
+    public bool AddType(ServiceTypeDAO service)
+    {
+      return ef.AddType(ServiceTypeMapper.MapToServiceType(service));
+    }
+
+    public bool UpdateType(ServiceTypeDAO service)
+    {
+      return ef.UpdateType(ServiceTypeMapper.MapToServiceType(service));
+    }
+
+    public List<ServiceTypeDAO> GetTypes()
+    {
+      var s = new List<ServiceTypeDAO>();
+
+      foreach (var service in ef.GetTypes())
+      {
+        s.Add(ServiceTypeMapper.MapToServiceTypeDAO(service));
+      }
+      return s;
+    }
+
+    public bool DeleteType(ServiceTypeDAO service)
+    {
+      return ef.DeleteType(ServiceTypeMapper.MapToServiceType(service));
+    }
+
+    public bool AddJob(JobDAO job)
+    {
+      return ef.AddJob(JobMapper.MapToJob(job));
+    }
+
+    public bool UpdateJob(JobDAO job)
+    {
+      return ef.UpdateJob(JobMapper.MapToJob(job));
+    }
+
+    public List<JobDAO> GetJobs()
+    {
+      var s = new List<JobDAO>();
+
+      foreach (var job in ef.GetJobs())
+      {
+        s.Add(JobMapper.MapToJobDAO(job));
+      }
+      return s;
+    }
+
+    public bool DeleteJob(JobDAO job)
+    {
+      return ef.DeleteJob(JobMapper.MapToJob(job));
+    }
   }
 }

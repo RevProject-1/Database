@@ -40,5 +40,32 @@ namespace ClientManagement.DbService
 
     [OperationContract]
     bool DeleteClient(ClientDAO client);
+
+    [OperationContract]
+    bool UpdateUser(UserDAO user);
+
+    [OperationContract]
+    bool AddType(ServiceTypeDAO service);
+
+    [OperationContract]
+    bool UpdateType(ServiceTypeDAO service);
+
+    [OperationContract]
+    List<ServiceTypeDAO> GetTypes();
+
+    [OperationContract]
+    bool DeleteType(ServiceTypeDAO service);
+
+    [OperationContract]
+    bool AddJob(JobDAO job);
+
+    [OperationContract]
+    bool UpdateJob(JobDAO job);
+
+    [OperationContract]
+    List<JobDAO> GetJobs();
+
+    [OperationContract]
+    bool DeleteJob(JobDAO job);
   }
 }
