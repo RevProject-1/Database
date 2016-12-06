@@ -101,6 +101,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Precision="8" Scale="2" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -364,6 +365,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rate" Type="Decimal" Precision="8" Scale="2" />
           <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ScheduleJobs" Relationship="Self.FK_dbo_ScheduleJob_dbo_ServiceTypes_ServiceTypeId" FromRole="ServiceTypes" ToRole="ScheduleJob" />
         </EntityType>
@@ -591,6 +593,7 @@
               <MappingFragment StoreEntitySet="ServiceTypes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>

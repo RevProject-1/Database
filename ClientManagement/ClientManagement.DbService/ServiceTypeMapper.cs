@@ -15,6 +15,7 @@ namespace ClientManagement.DbService
 
       c.Id = service.Id;
       c.Name = service.Name;
+      c.Rate = service.Rate;
       c.UserId = service.UserId;      
       return c;
     }
@@ -24,6 +25,7 @@ namespace ClientManagement.DbService
       var c = new ServiceType();
       c.Id = service.Id;
       c.Name = service.Name;
+      c.Rate = service.Rate;
       c.UserId = service.UserId;      
       return c;
     }

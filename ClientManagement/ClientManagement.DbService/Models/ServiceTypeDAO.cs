@@ -14,6 +14,8 @@ namespace ClientManagement.DbService.Models
     [DataMember]
     public string Name { get; set; }
     [DataMember]
+    public decimal? Rate { get; set; }
+    [DataMember]
     public string UserId { get; set; }
 
   }

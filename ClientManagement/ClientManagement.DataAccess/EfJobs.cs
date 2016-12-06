@@ -16,9 +16,11 @@ namespace ClientManagement.DataAccess
     public bool AddJob(ScheduleJob job)
     {
       var s = new ScheduleJob();
+      var x = new EfData();
+
       s.Id = job.Id;
       s.ServiceTypeID = job.ServiceTypeID;
-      s.ClientID = job.ClientID;
+      s.ClientID = x.GetClients().Where(c => c.Name.Equals(job.Client.Name)).FirstOrDefault().Id;
       s.UserID = job.UserID;
       s.StartDate = job.StartDate;
       s.EstimatedDuration = job.EstimatedDuration;

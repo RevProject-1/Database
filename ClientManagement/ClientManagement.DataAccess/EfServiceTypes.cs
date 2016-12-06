@@ -18,6 +18,7 @@ namespace ClientManagement.DataAccess
       var s = new ServiceType();
       s.Id = service.Id;
       s.Name = service.Name;
+      s.Rate = service.Rate;
       s.UserId = service.UserId;
       db.ServiceTypes.Add(s);
       return db.SaveChanges() > 0;
@@ -34,6 +35,9 @@ namespace ClientManagement.DataAccess
 
         if (service.Name != null)
           result.Name = service.Name;
+
+        if (service.Rate != 0M)
+          result.Rate = service.Rate;
 
         if (service.UserId != null)
           result.UserId = service.UserId;        
