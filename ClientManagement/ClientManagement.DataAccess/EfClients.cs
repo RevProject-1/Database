@@ -15,7 +15,7 @@ namespace ClientManagement.DataAccess
 
     public bool DeleteClient(Client client)
     {
-      var x = db.Clients.Where(c => c.Id == client.Id).FirstOrDefault();
+      var x = db.Clients.Where(c => c.Name == client.Name).FirstOrDefault();
       db.Clients.Remove(x);
       return db.SaveChanges() > 0;
     }
@@ -44,7 +44,7 @@ namespace ClientManagement.DataAccess
 
     public bool UpdateClient(Client client)
     {
-      var result = db.Clients.SingleOrDefault(x => x.Id == client.Id);
+      var result = db.Clients.SingleOrDefault(x => x.Name == client.Name);
 
       if (result != null)
       {

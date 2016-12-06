@@ -8,8 +8,6 @@ namespace ClientManagement.DataAccess
 {
   public partial class EfData
   {
-    private cmanageDBEntities db = new cmanageDBEntities();
-
-    
+    private cmanageDBEntities db = new cmanageDBEntities();    
   }
 }
