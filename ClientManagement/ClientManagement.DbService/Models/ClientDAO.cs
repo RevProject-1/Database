@@ -20,7 +20,8 @@ namespace ClientManagement.DbService.Models
     [DataMember]
     public string Email { get; set; }
     [DataMember]
-
+    public string UserId { get; set; }
+    [DataMember]
     public virtual AddressDAO Address { get; set; }
   }
 }

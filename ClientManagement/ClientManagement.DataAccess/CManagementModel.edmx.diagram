@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3b92bfca0d3f423abdd97d749561ac71" Name="Diagram1">
-        <EntityTypeShape EntityType="cmanageDBModel.Address" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+      <Diagram DiagramId="75bb16d00dd54c11be6c9cdf594f3bf5" Name="Diagram1">
+        <EntityTypeShape EntityType="cmanageDBModel.Address" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetUser" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="cmanageDBModel.Client" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmanageDBModel.Client" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
         <AssociationConnector Association="cmanageDBModel.FK_dbo_Client_dbo_Address_Id" ManuallyRouted="false" />
         <AssociationConnector Association="cmanageDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="cmanageDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />

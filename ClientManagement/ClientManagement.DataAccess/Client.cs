@@ -19,6 +19,7 @@ namespace ClientManagement.DataAccess
         public Nullable<int> AddressID { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string UserId { get; set; }
     
         public virtual Address Address { get; set; }
     }

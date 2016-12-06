@@ -12,11 +12,14 @@ namespace ClientManagement.DbService
     public static ClientDAO MapToClientDAO(Client client)
     {
       var c = new ClientDAO();
+      
       c.Id = client.Id;
       c.Name = client.Name;
       c.AddressID = client.AddressID;
+      c.Address = AddressMapper.MapToAddressDAO(client.Address);
       c.Email = client.Email;
       c.PhoneNumber = client.PhoneNumber;
+      c.UserId = client.UserId;
       return c;
     }
 
@@ -26,8 +29,10 @@ namespace ClientManagement.DbService
       c.Id = client.Id;
       c.Name = client.Name;
       c.AddressID = client.AddressID;
+      c.Address = AddressMapper.MapToAddress(client.Address);
       c.Email = client.Email;
       c.PhoneNumber = client.PhoneNumber;
+      c.UserId = client.UserId;
       return c;
     }
 

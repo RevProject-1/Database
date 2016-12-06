@@ -8,7 +8,7 @@ namespace ClientManagement.DataAccess
 {
   public partial class EfData
   {
-    public List<AspNetUser> GetUserNames()
+    public List<AspNetUser> GetUsers()
     {
       return db.AspNetUsers.ToList();
     }
@@ -24,6 +24,7 @@ namespace ClientManagement.DataAccess
       var u = new AspNetUser();
       u.Id = user.Id;
       u.Email = user.Email;
+      u.Name = user.Name;
       u.EmailConfirmed = true;
       u.PasswordHash = user.PasswordHash;
       u.SecurityStamp = user.SecurityStamp;
@@ -112,5 +113,7 @@ namespace ClientManagement.DataAccess
       }
       return db.SaveChanges() > 0;
     }
+
+    
   }
 }

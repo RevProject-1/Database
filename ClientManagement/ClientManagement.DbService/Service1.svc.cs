@@ -16,9 +16,16 @@ namespace ClientManagement.DbService
   {
     EfData ef = new EfData();
 
-    public List<UserDAO> GetUserNames()
+    public List<UserDAO> GetUsers()
     {
-      throw new NotImplementedException();
+      var x = ef.GetUsers();
+      var b = new List<UserDAO>();
+
+      foreach (var item in x)
+      {
+        b.Add(UserMapper.MapToUserDAO(item));
+      }
+      return b;
     }
 
     public bool Login(UserDAO user)
@@ -34,27 +41,27 @@ namespace ClientManagement.DbService
 
     public bool Register(UserDAO user)
     {
-      var u = new AspNetUser();
-      u.Id = user.Id;
-      u.Email = user.Email;
-      u.EmailConfirmed = true;
-      u.PasswordHash = user.PasswordHash;
-      u.SecurityStamp = user.SecurityStamp;
-      u.PhoneNumber = user.PhoneNumber;
-      u.PhoneNumberConfirmed = false;
-      u.TwoFactorEnabled = false;
-      u.LockoutEndDateUtc = user.LockoutEndDateUtc;
-      u.LockoutEnabled = false;
-      u.AccessFailedCount = user.AccessFailedCount;
-      u.UserName = user.UserName;
-      u.StreetAddress = user.StreetAddress;
-      u.City = user.City;
-      u.State = user.State;
-      u.Zip = user.Zip;
+      //var u = new AspNetUser();
+      //u.Id = user.Id;
+      //u.Email = user.Email;
+      //u.EmailConfirmed = true;
+      //u.PasswordHash = user.PasswordHash;
+      //u.SecurityStamp = user.SecurityStamp;
+      //u.PhoneNumber = user.PhoneNumber;
+      //u.PhoneNumberConfirmed = false;
+      //u.TwoFactorEnabled = false;
+      //u.LockoutEndDateUtc = user.LockoutEndDateUtc;
+      //u.LockoutEnabled = false;
+      //u.AccessFailedCount = user.AccessFailedCount;
+      //u.UserName = user.UserName;
+      //u.StreetAddress = user.StreetAddress;
+      //u.City = user.City;
+      //u.State = user.State;
+      //u.Zip = user.Zip;
 
 
-      return ef.AddUser(u);
-
+      //return ef.AddUser(u);
+      return ef.AddUser(UserMapper.MapToUser(user));
     }
 
     public List<ClientDAO> GetClients()
@@ -77,6 +84,11 @@ namespace ClientManagement.DbService
         s.Add(AddressMapper.MapToAddressDAO(address));
       }
       return s;
+    }
+
+    public bool AddClient(ClientDAO client)
+    {
+      return ef.AddClient(ClientMapper.MapToClient(client));      
     }
   }
 }

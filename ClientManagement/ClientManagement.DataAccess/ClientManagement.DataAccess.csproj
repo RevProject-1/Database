@@ -75,37 +75,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs">
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetRole.cs">
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUser.cs">
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserClaim.cs">
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetUserLogin.cs">
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CManagementModel.Context.cs">
+    <Compile Include="CmanagementModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CManagementModel.Context.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CManagementModel.cs">
+    <Compile Include="CmanagementModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CManagementModel.tt</DependentUpon>
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CManagementModel.Designer.cs">
+    <Compile Include="CmanagementModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CManagementModel.edmx</DependentUpon>
+      <DependentUpon>CmanagementModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="EfAddress.cs" />
     <Compile Include="EfClients.cs" />
@@ -115,12 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="CManagementModel.edmx">
+    <EntityDeploy Include="CmanagementModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CManagementModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CmanagementModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CManagementModel.edmx.diagram">
-      <DependentUpon>CManagementModel.edmx</DependentUpon>
+    <None Include="CmanagementModel.edmx.diagram">
+      <DependentUpon>CmanagementModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -128,15 +128,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CManagementModel.Context.tt">
+    <Content Include="CmanagementModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CManagementModel.edmx</DependentUpon>
-      <LastGenOutput>CManagementModel.Context.cs</LastGenOutput>
+      <DependentUpon>CmanagementModel.edmx</DependentUpon>
+      <LastGenOutput>CmanagementModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CManagementModel.tt">
+    <Content Include="CmanagementModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CManagementModel.edmx</DependentUpon>
-      <LastGenOutput>CManagementModel.cs</LastGenOutput>
+      <DependentUpon>CmanagementModel.edmx</DependentUpon>
+      <LastGenOutput>CmanagementModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

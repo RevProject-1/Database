@@ -18,7 +18,7 @@ namespace ClientManagement.DbService
     bool Register(UserDAO user);
 
     [OperationContract]
-    List<UserDAO> GetUserNames();
+    List<UserDAO> GetUsers();
 
     [OperationContract]
     bool ChangePassword(UserDAO user);
@@ -31,5 +31,8 @@ namespace ClientManagement.DbService
 
     [OperationContract]
     List<AddressDAO> GetAddress();
+
+    [OperationContract]
+    bool AddClient(ClientDAO client);
   }
 }

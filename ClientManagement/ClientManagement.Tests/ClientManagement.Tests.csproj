@@ -74,10 +74,24 @@
   <ItemGroup>
     <Compile Include="EfTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClientManagement.DataAccess\ClientManagement.DataAccess.csproj">
+      <Project>{11a31f41-8f47-4b58-9e15-3a9fb5fb417a}</Project>
+      <Name>ClientManagement.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClientManagement.DbService\ClientManagement.DbService.csproj">
+      <Project>{f0450338-27c3-4816-b5e9-0a91bd88baae}</Project>
+      <Name>ClientManagement.DbService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

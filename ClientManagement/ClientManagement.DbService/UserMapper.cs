@@ -15,6 +15,7 @@ namespace ClientManagement.DbService
       var u = new UserDAO();
       u.Id = user.Id;
       u.Email = user.Email;
+      u.Name = user.Name;
       u.EmailConfirmed = true;
       u.PasswordHash = user.PasswordHash;
       u.SecurityStamp = user.SecurityStamp;
@@ -38,6 +39,7 @@ namespace ClientManagement.DbService
       var u = new AspNetUser();
       u.Id = user.Id;
       u.Email = user.Email;
+      u.Name = user.Name;
       u.EmailConfirmed = true;
       u.PasswordHash = user.PasswordHash;
       u.SecurityStamp = user.SecurityStamp;
