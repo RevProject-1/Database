@@ -25,20 +25,23 @@ namespace ClientManagement.DataAccess
       u.Id = user.Id;
       u.Email = user.Email;
       u.Name = user.Name;
-      u.EmailConfirmed = true;
+      u.EmailConfirmed = user.EmailConfirmed;
       u.PasswordHash = user.PasswordHash;
       u.SecurityStamp = user.SecurityStamp;
       u.PhoneNumber = user.PhoneNumber;
-      u.PhoneNumberConfirmed = false;
-      u.TwoFactorEnabled = false;
+      u.PhoneNumberConfirmed = user.PhoneNumberConfirmed;
+      u.TwoFactorEnabled = user.TwoFactorEnabled;
       u.LockoutEndDateUtc = user.LockoutEndDateUtc;
-      u.LockoutEnabled = false;
+      u.LockoutEnabled = user.LockoutEnabled;
       u.AccessFailedCount = user.AccessFailedCount;
       u.UserName = user.UserName;
       u.StreetAddress = user.StreetAddress;
       u.City = user.City;
       u.State = user.State;
       u.Zip = user.Zip;
+      u.AspNetRoles = user.AspNetRoles;
+      u.AspNetUserClaims = user.AspNetUserClaims;
+      u.AspNetUserLogins = user.AspNetUserLogins;
       db.AspNetUsers.Add(u);
       return db.SaveChanges() > 0;
     }

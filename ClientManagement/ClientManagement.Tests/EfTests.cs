@@ -38,5 +38,34 @@ namespace ClientManagement.Tests
       var expected = data.GetUsers().ToList();
       Assert.NotEmpty(expected);
     }
+
+    [Fact]
+    public void Test_Register()
+    {
+      var data = new EfData();
+      var expected = new AspNetUser
+      {
+        Id = "djkfhieur55-3i3kj-kkl",
+        Email = "test6@test.com",
+        EmailConfirmed = true,
+        Name = "Fred",
+        StreetAddress = "123 Here",
+        City = "Reston",
+        State = "VA",
+        Zip = "20190",
+        PhoneNumber = "1234567890",
+        AccessFailedCount = 0,
+        LockoutEnabled = false,
+        PasswordHash = "ddddddddddddddddddddd",
+        SecurityStamp = null,
+        TwoFactorEnabled = false,
+        PhoneNumberConfirmed = false,
+        LockoutEndDateUtc = null,
+        UserName = "test6@test.com"
+      };
+      var actual = data.AddUser(expected);
+
+      Assert.True(actual);
+    }
   }
 }

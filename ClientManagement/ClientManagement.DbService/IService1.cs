@@ -34,5 +34,11 @@ namespace ClientManagement.DbService
 
     [OperationContract]
     bool AddClient(ClientDAO client);
+
+    [OperationContract]
+    bool UpdateClient(ClientDAO client);
+
+    [OperationContract]
+    bool DeleteClient(ClientDAO client);
   }
 }

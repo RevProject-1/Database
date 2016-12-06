@@ -40,27 +40,7 @@ namespace ClientManagement.DbService
     }
 
     public bool Register(UserDAO user)
-    {
-      //var u = new AspNetUser();
-      //u.Id = user.Id;
-      //u.Email = user.Email;
-      //u.EmailConfirmed = true;
-      //u.PasswordHash = user.PasswordHash;
-      //u.SecurityStamp = user.SecurityStamp;
-      //u.PhoneNumber = user.PhoneNumber;
-      //u.PhoneNumberConfirmed = false;
-      //u.TwoFactorEnabled = false;
-      //u.LockoutEndDateUtc = user.LockoutEndDateUtc;
-      //u.LockoutEnabled = false;
-      //u.AccessFailedCount = user.AccessFailedCount;
-      //u.UserName = user.UserName;
-      //u.StreetAddress = user.StreetAddress;
-      //u.City = user.City;
-      //u.State = user.State;
-      //u.Zip = user.Zip;
-
-
-      //return ef.AddUser(u);
+    {     
       return ef.AddUser(UserMapper.MapToUser(user));
     }
 
@@ -89,6 +69,16 @@ namespace ClientManagement.DbService
     public bool AddClient(ClientDAO client)
     {
       return ef.AddClient(ClientMapper.MapToClient(client));      
+    }
+
+    public bool UpdateClient(ClientDAO client)
+    {
+      return ef.UpdateClient(ClientMapper.MapToClient(client));
+    }
+
+    public bool DeleteClient(ClientDAO client)
+    {
+      return ef.DeleteClient(ClientMapper.MapToClient(client));
     }
   }
 }
