@@ -90,5 +90,35 @@ namespace ClientManagement.Tests
       var actual = data.AddJob(expected);
       Assert.True(actual);
     }
+
+    [Fact]
+    public void Test_UpdateJob()
+    {
+      var data = new EfData();
+      var client = data.GetClients().Where(c => c.Id == 1).FirstOrDefault();
+      var user = data.GetUsers().Where(c => c.Id == "kjdfhdakvdalvbjn").FirstOrDefault();
+      var st = data.GetTypes().Where(c => c.Id == 2).FirstOrDefault();
+
+      var expected = new ScheduleJob
+      {
+        ServiceTypeID = 2,
+        ServiceType = st,
+        ClientID = 1,
+        Client = client,
+        UserID = "kjdfhdakvdalvbjn",
+        AspNetUser = user,
+        StartDate = DateTime.Now,
+        EstimatedDuration = 12,
+        Notes = "dkjhdjfdadre",
+        Complete = false
+      };
+      var inserted = data.AddJob(expected);
+      var job = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id) ).FirstOrDefault();
+      expected = job;
+      expected.EstimatedDuration = 2;
+      var actual = data.UpdateJob(expected);
+      
+      Assert.True(actual);
+    }
   }
 }

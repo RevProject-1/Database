@@ -58,6 +58,9 @@ namespace ClientManagement.DataAccess
         if (job.Notes != null)
           result.Notes = job.Notes;
 
+        if (job.ExpenseID != 0)
+          result.ExpenseID = job.ExpenseID;
+
         if (job.Complete != true)
           result.Complete = job.Complete;
       }

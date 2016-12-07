@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>cmanageDB</Name>
+    <Name>CmanageDB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{d5efc331-00d6-48c2-a3bd-ea7388a8aee0}</ProjectGuid>
+    <ProjectGuid>{fb3beeda-c01f-4265-9245-4f16cb7b72a1}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>cmanageDB</RootNamespace>
-    <AssemblyName>cmanageDB</AssemblyName>
+    <RootNamespace>CmanageDB</RootNamespace>
+    <AssemblyName>CmanageDB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -65,6 +66,6 @@
     <Build Include="Script.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cmanageDB.publish.xml" />
+    <None Include="CmanageDB.publish.xml" />
   </ItemGroup>
 </Project>
