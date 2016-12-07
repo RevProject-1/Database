@@ -21,15 +21,15 @@ namespace ClientManagement.Tests
       Assert.True(actual);
     }
 
-    [Fact]
-    public void Test_InsertAddress()
-    {
-      var data = new EfData();
-      var expected = new Address() { Street = "123 main", City = "Reston", State = "VA", Zip = "20190" };
-      var actual = data.AddAddress(expected);
+    //[Fact]
+    //public void Test_InsertAddress()
+    //{
+    //  var data = new EfData();
+    //  var expected = new Address() { Street = "123 main", City = "Reston", State = "VA", Zip = "20190" };
+    //  var actual = data.AddAddress(expected);
 
-      Assert.True(actual);
-    }
+    //  Assert.True(actual);
+    //}
 
     [Fact]
     public void Test_GetUserName()
