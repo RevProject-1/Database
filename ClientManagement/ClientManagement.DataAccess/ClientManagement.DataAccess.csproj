@@ -111,10 +111,14 @@
     <Compile Include="EfClients.cs" />
     <Compile Include="EfData.cs" />
     <Compile Include="EfExpense.cs" />
+    <Compile Include="EfJobExpenses.cs" />
     <Compile Include="EfJobs.cs" />
     <Compile Include="EfServiceTypes.cs" />
     <Compile Include="EfUser.cs" />
     <Compile Include="Expense.cs">
+      <DependentUpon>CmanagementModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobExpense.cs">
       <DependentUpon>CmanagementModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

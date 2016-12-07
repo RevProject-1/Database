@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientManagement.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -24,7 +25,7 @@ namespace ClientManagement.DbService.Models
     [DataMember]
     public string Notes { get; set; }
     [DataMember]
-    public int? ExpenseID { get; set; }
+    public decimal Hours { get; set; }
     [DataMember]
     public bool Complete { get; set; }
 
@@ -32,11 +33,9 @@ namespace ClientManagement.DbService.Models
     public virtual UserDAO User { get; set; }
     [DataMember]
     public virtual ClientDAO Client { get; set; }
+    
     [DataMember]
-    public virtual ExpenseDAO Expense { get; set; }
-    [DataMember]
-    public virtual ServiceTypeDAO ServiceType { get; set; }
-
+    public virtual ServiceTypeDAO ServiceType { get; set; }   
 
   }
 }

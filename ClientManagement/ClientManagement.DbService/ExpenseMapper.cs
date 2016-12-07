@@ -24,8 +24,8 @@ namespace ClientManagement.DbService
       var c = new Expense();
       c.Id = expense.Id;
       c.Name = expense.Name;
-      c.Cost = expense.Cost;     
-
+      c.Cost = expense.Cost;
+      
       return c;
     }
 

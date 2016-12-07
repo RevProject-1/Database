@@ -16,6 +16,7 @@ namespace ClientManagement.DataAccess
     public bool AddJob(ScheduleJob job)
     {
       var s = new ScheduleJob();
+
       var x = new EfData();
 
       s.Id = job.Id;
@@ -25,7 +26,7 @@ namespace ClientManagement.DataAccess
       s.StartDate = job.StartDate;
       s.EstimatedDuration = job.EstimatedDuration;
       s.Notes = job.Notes;
-      s.ExpenseID = job.ExpenseID;
+      s.Hours = job.Hours;    
       s.Complete = job.Complete;
       db.ScheduleJobs.Add(s);
       return db.SaveChanges() > 0;
@@ -58,8 +59,8 @@ namespace ClientManagement.DataAccess
         if (job.Notes != null)
           result.Notes = job.Notes;
 
-        if (job.ExpenseID != 0)
-          result.ExpenseID = job.ExpenseID;
+        if (job.Hours != 0)
+          result.Hours = job.Hours;
 
         if (job.Complete != true)
           result.Complete = job.Complete;

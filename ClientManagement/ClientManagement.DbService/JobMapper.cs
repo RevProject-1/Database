@@ -9,7 +9,7 @@ namespace ClientManagement.DbService
 {
   public class JobMapper
   {
-
+    
     public static JobDAO MapToJobDAO(ScheduleJob job)
     {
       var c = new JobDAO();
@@ -23,7 +23,7 @@ namespace ClientManagement.DbService
       c.StartDate = job.StartDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
-      c.ExpenseID = job.ExpenseID;      
+      c.Hours = job.Hours;       
       c.Complete = job.Complete;
 
       return c;
@@ -42,8 +42,10 @@ namespace ClientManagement.DbService
       c.StartDate = job.StartDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
+      c.Hours = job.Hours;
       c.Complete = job.Complete;
-
+      
+     
       return c;
     }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientManagement.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -15,5 +16,6 @@ namespace ClientManagement.DbService.Models
     public string Name { get; set; }
     [DataMember]
     public decimal Cost { get; set; }
+   
   }
 }

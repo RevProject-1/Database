@@ -14,6 +14,12 @@ namespace ClientManagement.DataAccess
     
     public partial class ScheduleJob
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ScheduleJob()
+        {
+            this.JobExpenses = new HashSet<JobExpense>();
+        }
+    
         public int Id { get; set; }
         public int ServiceTypeID { get; set; }
         public int ClientID { get; set; }
@@ -21,12 +27,13 @@ namespace ClientManagement.DataAccess
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<int> EstimatedDuration { get; set; }
         public string Notes { get; set; }
-        public Nullable<int> ExpenseID { get; set; }
+        public decimal Hours { get; set; }
         public bool Complete { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Client Client { get; set; }
-        public virtual Expense Expense { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<JobExpense> JobExpenses { get; set; }
         public virtual ServiceType ServiceType { get; set; }
     }
 }

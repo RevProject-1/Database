@@ -12,19 +12,13 @@ namespace ClientManagement.DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Expense
+    public partial class JobExpense
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Expense()
-        {
-            this.JobExpenses = new HashSet<JobExpense>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Cost { get; set; }
+        public int JobID { get; set; }
+        public Nullable<int> ExpenseID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobExpense> JobExpenses { get; set; }
+        public virtual Expense Expense { get; set; }
+        public virtual ScheduleJob ScheduleJob { get; set; }
     }
 }

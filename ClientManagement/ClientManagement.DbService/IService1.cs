@@ -80,5 +80,17 @@ namespace ClientManagement.DbService
     [OperationContract]
     bool DeleteExpense(ExpenseDAO ex);
 
+    [OperationContract]
+    List<JobExpenseDAO> GetJobExpenses();
+
+    [OperationContract]
+    bool AddJobExpense(JobDAO jn, ExpenseDAO ex);
+
+    [OperationContract]
+    bool UpdateJobExpense(JobExpenseDAO ex);
+
+    [OperationContract]
+    bool DeleteJobExpense(JobExpenseDAO ex);
+
   }
 }

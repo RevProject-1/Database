@@ -104,10 +104,19 @@ CREATE TABLE [dbo].[ScheduleJob](
 [StartDate]         DATETIME                            NULL,
 [EstimatedDuration] INT                                 NULL,
 [Notes]             NVARCHAR(MAX)                       NULL,
-[ExpenseID]         INT                                 NULL,
+[Hours]             DECIMAL(4,2)                        NOT NULL,
 [Complete]          BIT     DEFAULT 0                   NOT NULL
 );
 GO
+
+
+CREATE TABLE [dbo].[JobExpense] (
+[Id]              INT     PRIMARY KEY IDENTITY (1,1)  NOT NULL,
+[JobID]           INT                                 NOT NULL,
+[ExpenseID]       INT                                 NULL,
+);
+GO
+
 
 CREATE TABLE [dbo].[Expense](
 [Id]        INT PRIMARY KEY IDENTITY (1,1)      NOT NULL,
@@ -157,6 +166,10 @@ CREATE NONCLUSTERED INDEX [IX_Id]
 GO
 
 CREATE NONCLUSTERED INDEX [IX_Id]
+    ON [dbo].JobExpense([Id] ASC);
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Id]
     ON [dbo].Expense([Id] ASC);
 GO
 
@@ -192,7 +205,12 @@ ALTER TABLE [dbo].[ScheduleJob]
 ADD CONSTRAINT [FK_dbo.ScheduleJob_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserID]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
 GO
 
-ALTER TABLE [dbo].[ScheduleJob]
-ADD CONSTRAINT [FK_dbo.ScheduleJob_dbo.Expense_ExpenseID] FOREIGN KEY ([ExpenseID]) REFERENCES [dbo].[Expense] ([Id]) ON DELETE CASCADE
+
+
+ALTER TABLE [dbo].[JobExpense]
+ADD CONSTRAINT [FK_dbo.JobExpense_dbo.Expense_ExpenseID] FOREIGN KEY ([ExpenseID]) REFERENCES [dbo].[Expense] ([Id]) ON DELETE CASCADE
 GO
 
+ALTER TABLE [dbo].[JobExpense]
+ADD CONSTRAINT [FK_dbo.JobExpense_dbo.ScheduleJob_JobID] FOREIGN KEY ([JobID]) REFERENCES [dbo].[ScheduleJob] ([Id]) ON DELETE CASCADE
+GO

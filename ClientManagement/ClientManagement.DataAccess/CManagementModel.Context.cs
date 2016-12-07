@@ -32,6 +32,7 @@ namespace ClientManagement.DataAccess
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Expense> Expenses { get; set; }
+        public virtual DbSet<JobExpense> JobExpenses { get; set; }
         public virtual DbSet<ScheduleJob> ScheduleJobs { get; set; }
         public virtual DbSet<ServiceType> ServiceTypes { get; set; }
     }
