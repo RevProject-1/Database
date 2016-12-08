@@ -43,6 +43,5 @@ namespace ClientManagement.DbService.Models
     public bool TwoFactorEnabled { get; set; }
     [DataMember]
     public bool LockoutEnabled { get; set; }
-
   }
 }

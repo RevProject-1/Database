@@ -45,8 +45,7 @@ namespace ClientManagement.DbService
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
       c.Hours = job.Hours;
-      c.Complete = job.Complete;
-      
+      c.Complete = job.Complete;      
      
       return c;
     }

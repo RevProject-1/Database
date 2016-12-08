@@ -58,7 +58,6 @@ namespace ClientManagement.DbService
       return u;
     }
 
-
     // this is an example of "Reflection"
     public static object MapTo(object o)
     {
@@ -71,6 +70,5 @@ namespace ClientManagement.DbService
       }
       return ob;
     }
-
   }
 }

@@ -42,8 +42,5 @@ namespace ClientManagement.DbService
       }
       return ob;
     }
-
-
-
   }
 }

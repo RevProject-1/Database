@@ -23,7 +23,7 @@ namespace ClientManagement.DataAccess
       
       s.ServiceTypeID = job.ServiceType.Id;
       s.ClientID = x.GetClients().Where(c => c.Name.Equals(job.Client.Name)).FirstOrDefault().Id;
-      //s.AspNetUser = job.AspNetUser;
+      
       s.UserID = job.UserID;
       s.StartDate = job.StartDate;
       s.EstimatedDuration = job.EstimatedDuration;

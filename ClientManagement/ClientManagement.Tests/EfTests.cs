@@ -21,15 +21,15 @@ namespace ClientManagement.Tests
       Assert.True(actual);
     }
 
-    //[Fact]
-    //public void Test_InsertAddress()
-    //{
-    //  var data = new EfData();
-    //  var expected = new Address() { Street = "123 main", City = "Reston", State = "VA", Zip = "20190" };
-    //  var actual = data.AddAddress(expected);
+    [Fact]
+    public void Test_InsertAddress()
+    {
+      var data = new EfData();
+      var expected = new Address() { Street = "123 main", City = "Reston", State = "VA", Zip = "20190" };
+      var actual = data.AddAddress(expected);
 
-    //  Assert.True(actual);
-    //}
+      Assert.True(actual);
+    }
 
     [Fact]
     public void Test_GetUserName()
@@ -94,18 +94,13 @@ namespace ClientManagement.Tests
 
       var expected = new ScheduleJob
       {
-        //ServiceTypeID = 1,
+        
         ServiceType = st,
-        //ClientID = 2,
+        
         Client = client,
-       // UserID = "0c2ea319-4a59-43d4-95cb-31e52812a062",
+       
         UserID = user.Id,
-        //StartDate = DateTime.Now,
-        //EstimatedDuration = 12,
-        //Notes = "Test Job",
-        //Hours = 20,
-
-        //Complete = false };
+        
       };
       var actual = data.AddJob(expected);
       Assert.True(actual);
@@ -115,25 +110,7 @@ namespace ClientManagement.Tests
     public void Test_UpdateJob()
     {
       var data = new EfData();
-      //var client = data.GetClients().Where(c => c.Id == 6).FirstOrDefault();
-      //var user = data.GetUsers().Where(c => c.Id == "00bca470-0637-463b-89d9-cb3468285aee").FirstOrDefault();
-      //var st = data.GetTypes().Where(c => c.Id == 2).FirstOrDefault();
       
-      //var expected = new ScheduleJob
-      //{
-      //  ServiceTypeID = 1,
-      //  ServiceType = st,
-      //  ClientID = 6,
-      //  Client = client,
-      //  UserID = "00bca470-0637-463b-89d9-cb3468285aee",
-      //  AspNetUser = user,
-      //  StartDate = DateTime.Now,
-      //  EstimatedDuration = 12,
-      //  Notes = "dkjhdjfdadre",
-      //  Complete = false
-      //};
-      //var inserted = data.AddJob(expected);
-      //var job = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id) ).FirstOrDefault();
       var expected = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id)).FirstOrDefault();
       expected.EstimatedDuration = 33;
       expected.Hours = 50;
@@ -141,6 +118,33 @@ namespace ClientManagement.Tests
       var actual = data.UpdateJob(expected);
       
       Assert.True(actual);
+    }
+
+    [Fact]
+    public void InsertExpense()
+    {
+      var data = new EfData();
+
+      var expected = new Expense
+      {
+        Name = "Tape",
+        Cost = 4.99M
+      };
+      var result = data.AddExpense(expected);
+      Assert.True(result);
+    }
+
+    [Fact]
+    public void TestInsertJobExpense()
+    {
+      var data = new EfData();
+
+      var expe = data.GetExpenses().FirstOrDefault();
+
+      var jb = data.GetJobs().FirstOrDefault();
+
+      var result = data.AddJobExpense(jb, expe);
+      Assert.True(result);
     }
   }
 }

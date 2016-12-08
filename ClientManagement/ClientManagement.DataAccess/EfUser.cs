@@ -115,8 +115,6 @@ namespace ClientManagement.DataAccess
           result.PasswordHash = user.PasswordHash;
       }
       return db.SaveChanges() > 0;
-    }
-
-    
+    }    
   }
 }
