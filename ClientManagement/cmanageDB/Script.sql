@@ -3,7 +3,6 @@
     [Name] NVARCHAR (256) NOT NULL,
     CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
 GO
 
 CREATE TABLE [dbo].[AspNetUserClaims] (
@@ -13,7 +12,6 @@ CREATE TABLE [dbo].[AspNetUserClaims] (
     [ClaimValue] NVARCHAR (MAX) NULL,
     CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),    
 );
-
 GO
 
 CREATE TABLE [dbo].[AspNetUserLogins] (
@@ -22,7 +20,6 @@ CREATE TABLE [dbo].[AspNetUserLogins] (
     [UserId]        NVARCHAR (128) NOT NULL,
     CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED ([LoginProvider] ASC, [ProviderKey] ASC, [UserId] ASC),    
 );
-
 GO
 
 CREATE TABLE [dbo].[AspNetUserRoles] (
@@ -30,7 +27,6 @@ CREATE TABLE [dbo].[AspNetUserRoles] (
     [RoleId] NVARCHAR (128) NOT NULL,
     CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
 );
-
 GO
 
 CREATE TABLE [dbo].[AspNetUsers] (
@@ -53,7 +49,6 @@ CREATE TABLE [dbo].[AspNetUsers] (
     [UserName]             NVARCHAR (256) NOT NULL,
     CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
 GO
 
 CREATE TABLE [dbo].[Address] (
@@ -64,7 +59,6 @@ CREATE TABLE [dbo].[Address] (
     [Zip]       NVARCHAR(MAX)   NULL,
     CONSTRAINT [PK_dbo.Address] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
 GO
 
 CREATE TABLE [dbo].[Clients] (
@@ -76,7 +70,6 @@ CREATE TABLE [dbo].[Clients] (
     [UserId]        NVARCHAR(128)   NULL,
     CONSTRAINT [Pk_dbo.Client] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
 GO
 
 CREATE TABLE [dbo].[ServiceTypes](
@@ -85,7 +78,6 @@ CREATE TABLE [dbo].[ServiceTypes](
 [Rate]              DECIMAL(8,2)                        NULL,
 [UserId]            NVARCHAR(128)                       NULL
 );
-
 GO
 
 CREATE TABLE [dbo].[ScheduleJob](
@@ -99,16 +91,13 @@ CREATE TABLE [dbo].[ScheduleJob](
 [Hours]             DECIMAL(4,2)                        NULL,
 [Complete]          BIT     DEFAULT 0                   NOT NULL
 );
-
 GO
-
 
 CREATE TABLE [dbo].[JobExpense] (
 [Id]              INT     PRIMARY KEY IDENTITY (1,1)  NOT NULL,
 [JobID]           INT                                 NOT NULL,
 [ExpenseID]       INT                                 NULL,
 );
-
 GO
 
 CREATE TABLE [dbo].[Expense](
@@ -116,7 +105,6 @@ CREATE TABLE [dbo].[Expense](
 [Name]      NVARCHAR(MAX)                       NOT NULL,
 [Cost]      DECIMAL(8,2)                        NOT NULL,
 );
-
 GO
 
 CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex]
@@ -193,10 +181,6 @@ GO
 
 ALTER TABLE [dbo].[ScheduleJob]
 ADD CONSTRAINT [FK_dbo.ScheduleJob_dbo.Clients_ClientID] FOREIGN KEY ([ClientID]) REFERENCES [dbo].[Clients] ([Id]) ON DELETE CASCADE
-GO
-
-ALTER TABLE [dbo].[ScheduleJob]
-ADD CONSTRAINT [FK_dbo.ScheduleJob_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserID]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
 GO
 
 ALTER TABLE [dbo].[JobExpense]
