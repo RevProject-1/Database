@@ -12,12 +12,14 @@ namespace ClientManagement.DbService
     
     public static JobDAO MapToJobDAO(ScheduleJob job)
     {
+      var ef = new EfData();
       var c = new JobDAO();
       c.Id = job.Id;
       c.ServiceTypeID = job.ServiceTypeID;
       c.ServiceType = ServiceTypeMapper.MapToServiceTypeDAO(job.ServiceType);
       c.ClientID = job.ClientID;
       c.Client = ClientMapper.MapToClientDAO(job.Client);
+      c.User = UserMapper.MapToUserDAO(ef.GetUsers().Where(x =>x.Id == job.UserID).FirstOrDefault());
       c.UserID = job.UserID;     
       c.StartDate = job.StartDate;
       c.EstimatedDuration = job.EstimatedDuration;
@@ -31,8 +33,8 @@ namespace ClientManagement.DbService
     public static ScheduleJob MapToJob(JobDAO job)
     {
       var c = new ScheduleJob();
-      
-     
+
+      c.Id = job.Id;     
       c.ServiceTypeID = job.ServiceType.Id;
       c.ServiceType = ServiceTypeMapper.MapToServiceType(job.ServiceType);
       c.ClientID = job.Client.Id;

@@ -41,5 +41,40 @@ namespace ClientManagement.Tests
       var data = new EfData();
       return data.AddJob(JobMapper.MapToJob(job));
     }
+
+    [Fact]
+    public void TestJobUpdate()
+    {
+
+      var data = new EfData();
+      //var client = data.GetClients().Where(c => c.Id == 4).FirstOrDefault();
+      //var user = data.GetUsers().Where(c => c.Id == "60d9002e-667f-4794-a9dd-670c0ecf56c9").FirstOrDefault();
+      //var st = data.GetTypes().Where(c => c.Id == 1).FirstOrDefault();
+      var u = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id)).FirstOrDefault();
+     
+      //var client2 = ClientMapper.MapToClientDAO(client);
+      //var user2 = UserMapper.MapToUserDAO(user);
+      //var st2 = ServiceTypeMapper.MapToServiceTypeDAO(st);
+      var u2 = JobMapper.MapToJobDAO(u);
+        
+
+      //u2.Client = client2;
+      //u2.User = user2;
+      //u2.ServiceType = st2;
+      //u2.Id = u.Id;
+      u2.Hours = 40;
+      u2.Complete = true;
+      
+      var actual = UpdateJob(u2);
+
+      Assert.True(actual);
+    }
+
+    public bool UpdateJob(JobDAO job)
+    {
+      var data = new EfData();
+
+      return data.UpdateJob(JobMapper.MapToJob(job));
+    }
   }
 }

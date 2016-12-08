@@ -34,5 +34,6 @@ namespace ClientManagement.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobExpense> JobExpenses { get; set; }
         public virtual ServiceType ServiceType { get; set; }
+        
     }
 }

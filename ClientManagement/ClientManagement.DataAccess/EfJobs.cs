@@ -8,6 +8,7 @@ namespace ClientManagement.DataAccess
 {
   public partial class EfData
   {
+
     public List<ScheduleJob> GetJobs()
     {
       return db.ScheduleJobs.ToList();
@@ -36,7 +37,7 @@ namespace ClientManagement.DataAccess
     public bool UpdateJob(ScheduleJob job)
     {
       var result = db.ScheduleJobs.SingleOrDefault(x => x.Id == job.Id);
-
+      
       if (result != null)
       {
         if (job.Id != 0)
