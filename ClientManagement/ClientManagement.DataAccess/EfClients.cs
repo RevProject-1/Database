@@ -29,7 +29,7 @@ namespace ClientManagement.DataAccess
       a.Zip = client.Address.Zip;
       db.Addresses.Add(a);
       db.SaveChanges();
-
+      a.Id = GetAddress().Where(x => x.Id == GetAddress().Max(cv => cv.Id)).FirstOrDefault().Id;
       var c = new Client();   
       
       c.AddressID = a.Id;

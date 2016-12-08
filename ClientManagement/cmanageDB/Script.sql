@@ -4,34 +4,26 @@
     CONSTRAINT [PK_dbo.AspNetRoles] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-
 GO
-
 
 CREATE TABLE [dbo].[AspNetUserClaims] (
     [Id]         INT            IDENTITY (1, 1) NOT NULL,
     [UserId]     NVARCHAR (128) NOT NULL,
     [ClaimType]  NVARCHAR (MAX) NULL,
     [ClaimValue] NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),
-    
+    CONSTRAINT [PK_dbo.AspNetUserClaims] PRIMARY KEY CLUSTERED ([Id] ASC),    
 );
 
-
 GO
-
 
 CREATE TABLE [dbo].[AspNetUserLogins] (
     [LoginProvider] NVARCHAR (128) NOT NULL,
     [ProviderKey]   NVARCHAR (128) NOT NULL,
     [UserId]        NVARCHAR (128) NOT NULL,
-    CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED ([LoginProvider] ASC, [ProviderKey] ASC, [UserId] ASC),
-    
+    CONSTRAINT [PK_dbo.AspNetUserLogins] PRIMARY KEY CLUSTERED ([LoginProvider] ASC, [ProviderKey] ASC, [UserId] ASC),    
 );
 
-
 GO
-
 
 CREATE TABLE [dbo].[AspNetUserRoles] (
     [UserId] NVARCHAR (128) NOT NULL,
@@ -39,9 +31,7 @@ CREATE TABLE [dbo].[AspNetUserRoles] (
     CONSTRAINT [PK_dbo.AspNetUserRoles] PRIMARY KEY CLUSTERED ([UserId] ASC, [RoleId] ASC),
 );
 
-
 GO
-
 
 CREATE TABLE [dbo].[AspNetUsers] (
     [Id]                   NVARCHAR (128) NOT NULL,
@@ -64,21 +54,21 @@ CREATE TABLE [dbo].[AspNetUsers] (
     CONSTRAINT [PK_dbo.AspNetUsers] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
-
 GO
 
 CREATE TABLE [dbo].[Address] (
-    [Id]        INT             NOT NULL,
+    [Id]        INT         IDENTITY (1,1)    NOT NULL,
     [Street]    NVARCHAR(MAX)   NULL,
     [City]      NVARCHAR(MAX)   NULL,
     [State]     NVARCHAR(MAX)   NULL,
     [Zip]       NVARCHAR(MAX)   NULL,
     CONSTRAINT [PK_dbo.Address] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
 GO
 
 CREATE TABLE [dbo].[Clients] (
-    [Id]            INT             NOT NULL,
+    [Id]            INT     IDENTITY(1,1)        NOT NULL,
     [Name]          NVARCHAR(256)   NOT NULL,
     [AddressID]     INT             NULL,
     [PhoneNumber]   NVARCHAR(150)   NULL,
@@ -86,6 +76,7 @@ CREATE TABLE [dbo].[Clients] (
     [UserId]        NVARCHAR(128)   NULL,
     CONSTRAINT [Pk_dbo.Client] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
+
 GO
 
 CREATE TABLE [dbo].[ServiceTypes](
@@ -94,6 +85,7 @@ CREATE TABLE [dbo].[ServiceTypes](
 [Rate]              DECIMAL(8,2)                        NULL,
 [UserId]            NVARCHAR(128)                       NULL
 );
+
 GO
 
 CREATE TABLE [dbo].[ScheduleJob](
@@ -104,9 +96,10 @@ CREATE TABLE [dbo].[ScheduleJob](
 [StartDate]         DATETIME                            NULL,
 [EstimatedDuration] INT                                 NULL,
 [Notes]             NVARCHAR(MAX)                       NULL,
-[Hours]             DECIMAL(4,2)                        NOT NULL,
+[Hours]             DECIMAL(4,2)                        NULL,
 [Complete]          BIT     DEFAULT 0                   NOT NULL
 );
+
 GO
 
 
@@ -115,14 +108,15 @@ CREATE TABLE [dbo].[JobExpense] (
 [JobID]           INT                                 NOT NULL,
 [ExpenseID]       INT                                 NULL,
 );
-GO
 
+GO
 
 CREATE TABLE [dbo].[Expense](
 [Id]        INT PRIMARY KEY IDENTITY (1,1)      NOT NULL,
 [Name]      NVARCHAR(MAX)                       NOT NULL,
 [Cost]      DECIMAL(8,2)                        NOT NULL,
 );
+
 GO
 
 CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex]
@@ -204,8 +198,6 @@ GO
 ALTER TABLE [dbo].[ScheduleJob]
 ADD CONSTRAINT [FK_dbo.ScheduleJob_dbo.AspNetUsers_UserId] FOREIGN KEY ([UserID]) REFERENCES [dbo].[AspNetUsers] ([Id]) ON DELETE CASCADE
 GO
-
-
 
 ALTER TABLE [dbo].[JobExpense]
 ADD CONSTRAINT [FK_dbo.JobExpense_dbo.Expense_ExpenseID] FOREIGN KEY ([ExpenseID]) REFERENCES [dbo].[Expense] ([Id]) ON DELETE CASCADE

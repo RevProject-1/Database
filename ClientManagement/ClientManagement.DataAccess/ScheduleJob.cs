@@ -27,10 +27,9 @@ namespace ClientManagement.DataAccess
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<int> EstimatedDuration { get; set; }
         public string Notes { get; set; }
-        public decimal Hours { get; set; }
+        public Nullable<decimal> Hours { get; set; }
         public bool Complete { get; set; }
     
-        public virtual AspNetUser AspNetUser { get; set; }
         public virtual Client Client { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobExpense> JobExpenses { get; set; }

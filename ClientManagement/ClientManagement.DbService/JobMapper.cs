@@ -18,8 +18,7 @@ namespace ClientManagement.DbService
       c.ServiceType = ServiceTypeMapper.MapToServiceTypeDAO(job.ServiceType);
       c.ClientID = job.ClientID;
       c.Client = ClientMapper.MapToClientDAO(job.Client);
-      c.UserID = job.UserID;
-      c.User = UserMapper.MapToUserDAO(job.AspNetUser);
+      c.UserID = job.UserID;     
       c.StartDate = job.StartDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
@@ -32,13 +31,14 @@ namespace ClientManagement.DbService
     public static ScheduleJob MapToJob(JobDAO job)
     {
       var c = new ScheduleJob();
-      c.Id = job.Id;
-      c.ServiceTypeID = job.ServiceTypeID;
+      
+     
+      c.ServiceTypeID = job.ServiceType.Id;
       c.ServiceType = ServiceTypeMapper.MapToServiceType(job.ServiceType);
-      c.ClientID = job.ClientID;
+      c.ClientID = job.Client.Id;
       c.Client = ClientMapper.MapToClient(job.Client);
-      c.UserID = job.UserID;
-      c.AspNetUser = UserMapper.MapToUser(job.User);
+      c.UserID = job.User.Id;
+      //c.AspNetUser = UserMapper.MapToUser(job.User);
       c.StartDate = job.StartDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;

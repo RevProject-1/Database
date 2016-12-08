@@ -14,7 +14,7 @@ namespace ClientManagement.Tests
     public void Test_InsertClient()
     {
       var data = new EfData();
-      var expected = new Client() { Name = "Derek", Address = new Address() {Street = "123 main", City = "Reston", State = "VA", Zip = "20190" }, Email = "test@test.com", PhoneNumber = "1234567890" };
+      var expected = new Client() { Name = "Derek Geter", Address = new Address() {Street = "1234 main", City = "Reston", State = "VA", Zip = "20190" }, Email = "test@test.com", PhoneNumber = "1234567890" , UserId = "60d9002e-667f-4794-a9dd-670c0ecf56c9" };
 
       var actual = data.AddClient(expected);
 
@@ -69,24 +69,44 @@ namespace ClientManagement.Tests
     }
 
     [Fact]
+    public void Test_AddType()
+    {
+      var data = new EfData();
+      
+      var expected = new ServiceType
+      {
+        Name = "Butcher",
+        Rate = 8.00M,
+        UserId = "60d9002e-667f-4794-a9dd-670c0ecf56c9"
+      };
+      var actual = data.AddType(expected);
+
+      Assert.True(actual);
+    }
+
+    [Fact]
     public void Test_AddJob()
     {
       var data = new EfData();
-      var client = data.GetClients().Where(c => c.Id == 1).FirstOrDefault();
-      var user = data.GetUsers().Where(c => c.Id == "kjdfhdakvdalvbjn").FirstOrDefault();
-      var st = data.GetTypes().Where(c => c.Id == 2).FirstOrDefault();
+      var client = data.GetClients().Where(c => c.Id == 4).FirstOrDefault();
+      var user = data.GetUsers().Where(c => c.Id == "60d9002e-667f-4794-a9dd-670c0ecf56c9").FirstOrDefault();
+      var st = data.GetTypes().Where(c => c.Id == 1).FirstOrDefault();
 
-      var expected = new ScheduleJob {
-        ServiceTypeID = 2,
+      var expected = new ScheduleJob
+      {
+        //ServiceTypeID = 1,
         ServiceType = st,
-        ClientID = 1,
+        //ClientID = 2,
         Client = client,
-        UserID = "kjdfhdakvdalvbjn",
-        AspNetUser = user,
-        StartDate = DateTime.Now,
-        EstimatedDuration = 12,
-        Notes = "dkjhdjfdadre",
-        Complete = false };
+       // UserID = "0c2ea319-4a59-43d4-95cb-31e52812a062",
+        UserID = user.Id,
+        //StartDate = DateTime.Now,
+        //EstimatedDuration = 12,
+        //Notes = "Test Job",
+        //Hours = 20,
+
+        //Complete = false };
+      };
       var actual = data.AddJob(expected);
       Assert.True(actual);
     }
@@ -95,27 +115,29 @@ namespace ClientManagement.Tests
     public void Test_UpdateJob()
     {
       var data = new EfData();
-      var client = data.GetClients().Where(c => c.Id == 1).FirstOrDefault();
-      var user = data.GetUsers().Where(c => c.Id == "kjdfhdakvdalvbjn").FirstOrDefault();
-      var st = data.GetTypes().Where(c => c.Id == 2).FirstOrDefault();
-
-      var expected = new ScheduleJob
-      {
-        ServiceTypeID = 2,
-        ServiceType = st,
-        ClientID = 1,
-        Client = client,
-        UserID = "kjdfhdakvdalvbjn",
-        AspNetUser = user,
-        StartDate = DateTime.Now,
-        EstimatedDuration = 12,
-        Notes = "dkjhdjfdadre",
-        Complete = false
-      };
-      var inserted = data.AddJob(expected);
-      var job = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id) ).FirstOrDefault();
-      expected = job;
-      expected.EstimatedDuration = 2;
+      //var client = data.GetClients().Where(c => c.Id == 6).FirstOrDefault();
+      //var user = data.GetUsers().Where(c => c.Id == "00bca470-0637-463b-89d9-cb3468285aee").FirstOrDefault();
+      //var st = data.GetTypes().Where(c => c.Id == 2).FirstOrDefault();
+      
+      //var expected = new ScheduleJob
+      //{
+      //  ServiceTypeID = 1,
+      //  ServiceType = st,
+      //  ClientID = 6,
+      //  Client = client,
+      //  UserID = "00bca470-0637-463b-89d9-cb3468285aee",
+      //  AspNetUser = user,
+      //  StartDate = DateTime.Now,
+      //  EstimatedDuration = 12,
+      //  Notes = "dkjhdjfdadre",
+      //  Complete = false
+      //};
+      //var inserted = data.AddJob(expected);
+      //var job = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id) ).FirstOrDefault();
+      var expected = data.GetJobs().Where(x => x.Id == data.GetJobs().Max(a => a.Id)).FirstOrDefault();
+      expected.EstimatedDuration = 33;
+      expected.Hours = 50;
+      expected.Complete = true;
       var actual = data.UpdateJob(expected);
       
       Assert.True(actual);

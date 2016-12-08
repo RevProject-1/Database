@@ -25,7 +25,7 @@ namespace ClientManagement.DbService.Models
     [DataMember]
     public string Notes { get; set; }
     [DataMember]
-    public decimal Hours { get; set; }
+    public decimal? Hours { get; set; }
     [DataMember]
     public bool Complete { get; set; }
 

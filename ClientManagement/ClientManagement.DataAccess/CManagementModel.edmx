@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Street" Type="nvarchar(max)" />
           <Property Name="City" Type="nvarchar(max)" />
           <Property Name="State" Type="nvarchar(max)" />
@@ -75,7 +75,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="AddressID" Type="int" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="150" />
@@ -109,7 +109,7 @@
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EstimatedDuration" Type="int" />
           <Property Name="Notes" Type="nvarchar(max)" />
-          <Property Name="Hours" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Hours" Type="decimal" Precision="4" Scale="2" />
           <Property Name="Complete" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="ServiceTypes">
@@ -219,20 +219,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ScheduleJob" Type="Self.ScheduleJob" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ScheduleJob">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_dbo_ScheduleJob_dbo_Clients_ClientID">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -301,10 +287,6 @@
             <End Role="ScheduleJob" EntitySet="ScheduleJob" />
             <End Role="JobExpense" EntitySet="JobExpense" />
           </AssociationSet>
-          <AssociationSet Name="FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="ScheduleJob" EntitySet="ScheduleJob" />
-          </AssociationSet>
           <AssociationSet Name="FK_dbo_ScheduleJob_dbo_Clients_ClientID" Association="Self.FK_dbo_ScheduleJob_dbo_Clients_ClientID">
             <End Role="Clients" EntitySet="Clients" />
             <End Role="ScheduleJob" EntitySet="ScheduleJob" />
@@ -323,7 +305,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -382,14 +364,13 @@
           <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-          <NavigationProperty Name="ScheduleJobs" Relationship="Self.FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="ScheduleJob" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AddressID" Type="Int32" />
           <Property Name="PhoneNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -428,9 +409,8 @@
           <Property Name="StartDate" Type="DateTime" Precision="3" />
           <Property Name="EstimatedDuration" Type="Int32" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Hours" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+          <Property Name="Hours" Type="Decimal" Precision="4" Scale="2" />
           <Property Name="Complete" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId" FromRole="ScheduleJob" ToRole="AspNetUsers" />
           <NavigationProperty Name="Client" Relationship="Self.FK_dbo_ScheduleJob_dbo_Clients_ClientID" FromRole="ScheduleJob" ToRole="Clients" />
           <NavigationProperty Name="JobExpenses" Relationship="Self.FK_dbo_JobExpense_dbo_ScheduleJob_JobID" FromRole="ScheduleJob" ToRole="JobExpense" />
           <NavigationProperty Name="ServiceType" Relationship="Self.FK_dbo_ScheduleJob_dbo_ServiceTypes_ServiceTypeID" FromRole="ScheduleJob" ToRole="ServiceTypes" />
@@ -484,20 +464,6 @@
             </Principal>
             <Dependent Role="AspNetUserLogins">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="ScheduleJob" Type="Self.ScheduleJob" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ScheduleJob">
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -583,10 +549,6 @@
           <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_ScheduleJob_dbo_AspNetUsers_UserId">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="ScheduleJob" EntitySet="ScheduleJobs" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_ScheduleJob_dbo_Clients_ClientID" Association="Self.FK_dbo_ScheduleJob_dbo_Clients_ClientID">
             <End Role="Clients" EntitySet="Clients" />
