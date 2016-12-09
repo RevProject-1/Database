@@ -26,6 +26,7 @@ namespace ClientManagement.DataAccess
       
       s.UserID = job.UserID;
       s.StartDate = job.StartDate;
+      s.EndDate = job.EndDate;
       s.EstimatedDuration = job.EstimatedDuration;
       s.Notes = job.Notes;
       s.Hours = job.Hours;    
@@ -54,6 +55,9 @@ namespace ClientManagement.DataAccess
 
         if (job.StartDate != null)
           result.StartDate = job.StartDate;
+
+        if (job.EndDate != null)
+          result.EndDate = job.EndDate;
 
         if (job.EstimatedDuration != null)
           result.EstimatedDuration = job.EstimatedDuration;

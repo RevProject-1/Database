@@ -107,6 +107,7 @@
           <Property Name="ClientID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
           <Property Name="EstimatedDuration" Type="int" />
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="Hours" Type="decimal" Precision="4" Scale="2" />
@@ -407,6 +408,7 @@
           <Property Name="ClientID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="EstimatedDuration" Type="Int32" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Hours" Type="Decimal" Precision="4" Scale="2" />
@@ -676,6 +678,7 @@
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="EstimatedDuration" ColumnName="EstimatedDuration" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="Hours" ColumnName="Hours" />

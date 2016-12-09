@@ -86,6 +86,7 @@ CREATE TABLE [dbo].[ScheduleJob](
 [ClientID]          INT                                 NOT NULL,
 [UserID]            NVARCHAR(128)                       NOT NULL,
 [StartDate]         DATETIME                            NULL,
+[EndDate]           DATETIME                            NULL,
 [EstimatedDuration] INT                                 NULL,
 [Notes]             NVARCHAR(MAX)                       NULL,
 [Hours]             DECIMAL(4,2)                        NULL,

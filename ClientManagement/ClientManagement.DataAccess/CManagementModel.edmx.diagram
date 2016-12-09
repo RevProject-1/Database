@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9007e77c2e714d02a148d2cfd34a3159" Name="Diagram1">
+      <Diagram DiagramId="788eea6270994c29b0a3b5877a5e3a3f" Name="Diagram1">
         <EntityTypeShape EntityType="cmanageDBModel.Address" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetRole" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.AspNetUser" Width="1.5" PointX="10" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="cmanageDBModel.Client" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="cmanageDBModel.Expense" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cmanageDBModel.JobExpense" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmanageDBModel.Client" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmanageDBModel.Expense" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmanageDBModel.JobExpense" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cmanageDBModel.ScheduleJob" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="cmanageDBModel.ServiceType" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmanageDBModel.ServiceType" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
         <AssociationConnector Association="cmanageDBModel.FK_dbo_Client_dbo_Address_ID" ManuallyRouted="false" />
         <AssociationConnector Association="cmanageDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="cmanageDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />

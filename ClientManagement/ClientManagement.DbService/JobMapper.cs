@@ -22,6 +22,7 @@ namespace ClientManagement.DbService
       c.User = UserMapper.MapToUserDAO(ef.GetUsers().Where(x =>x.Id == job.UserID).FirstOrDefault());
       c.UserID = job.UserID;     
       c.StartDate = job.StartDate;
+      c.EndDate = job.EndDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
       c.Hours = job.Hours;       
@@ -42,6 +43,7 @@ namespace ClientManagement.DbService
       c.UserID = job.User.Id;
       //c.AspNetUser = UserMapper.MapToUser(job.User);
       c.StartDate = job.StartDate;
+      c.EndDate = job.EndDate;
       c.EstimatedDuration = job.EstimatedDuration;
       c.Notes = job.Notes;
       c.Hours = job.Hours;

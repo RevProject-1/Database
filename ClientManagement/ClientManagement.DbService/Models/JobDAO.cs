@@ -21,6 +21,8 @@ namespace ClientManagement.DbService.Models
     [DataMember]
     public Nullable<System.DateTime> StartDate { get; set; }
     [DataMember]
+    public Nullable<System.DateTime> EndDate { get; set; }
+    [DataMember]
     public Nullable<int> EstimatedDuration { get; set; }
     [DataMember]
     public string Notes { get; set; }

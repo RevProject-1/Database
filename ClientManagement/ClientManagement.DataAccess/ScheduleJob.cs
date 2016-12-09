@@ -25,6 +25,7 @@ namespace ClientManagement.DataAccess
         public int ClientID { get; set; }
         public string UserID { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<int> EstimatedDuration { get; set; }
         public string Notes { get; set; }
         public Nullable<decimal> Hours { get; set; }
@@ -34,6 +35,5 @@ namespace ClientManagement.DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<JobExpense> JobExpenses { get; set; }
         public virtual ServiceType ServiceType { get; set; }
-        
     }
 }
